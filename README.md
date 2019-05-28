@@ -47,6 +47,7 @@ import Search from "gatsby-wordpress-search";
     contentCharacters={300}
     maxResults={5}
     onSelect={object => console.log(object)}
+    placeholder='Search'
   />
 </Wrapper>;
 

@@ -14,6 +14,7 @@ const PureSearchComponent = props => {
   const minCharacters = props.minCharacters || 2;
   const contentCharacters = props.contentCharacters || 200;
   const maxResults = props.maxResults || 10;
+  const placeholder = props.placeholder || "Search...";
 
   const [query, setQuery] = useState("");
   const [idx, setIdx] = useState(null);
@@ -52,6 +53,7 @@ const PureSearchComponent = props => {
         name='query'
         onChange={e => setQuery(e.target.value)}
         autoComplete='off'
+        placeholder={placeholder}
         className={`input`}
       />
 
