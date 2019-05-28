@@ -42,7 +42,12 @@ import styled from "styled-components";
 import Search from "gatsby-wordpress-search";
 
 <Wrapper>
-  <Search minCharacters={4} contentCharacters={300} maxResults={5} />
+  <Search
+    minCharacters={4}
+    contentCharacters={300}
+    maxResults={5}
+    onSelect={object => console.log(object)}
+  />
 </Wrapper>;
 
 const Wrapper = styled.div`

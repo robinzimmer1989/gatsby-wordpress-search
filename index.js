@@ -6,7 +6,8 @@ const PureSearchComponent = props => {
   const {
     data: {
       allWordpressWpSearchResults: { edges: posts }
-    }
+    },
+    onSelect
   } = props;
 
   // Default props
@@ -62,7 +63,11 @@ const PureSearchComponent = props => {
 
               return (
                 <li key={post.node.id} className={`suggest`}>
-                  <Link className={`suggestTitle`} to={post.node.pathname}>
+                  <Link
+                    className={`suggestTitle`}
+                    to={post.node.pathname}
+                    onClick={() => onSelect(post.node)}
+                  >
                     {post.node.post_title}
                   </Link>
 
