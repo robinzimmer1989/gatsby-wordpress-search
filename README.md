@@ -12,17 +12,7 @@ Gatsby plugin: gatsby-source-wordpress
 
 1. Upload the PHP file inside the plugin folder (see [GitHub](https://github.com/robinzimmer1989/gatsby-wordpress-search)) as a plugin into Wordpress. Once this is done you should be able to see the json output at "/wp-json/wp/v2/searchResults".
 
-2. Install the search component
-
-```javascript
-yarn add gatsby-wordpress-search
-
-or
-
-npm i gatsby-wordpress-search
-```
-
-3. Include the route in your gatsby-config.js
+2. Include the route in your gatsby-config.js
 
 ```javascript
 {
@@ -32,6 +22,16 @@ npm i gatsby-wordpress-search
         includedRoutes: ["**/searchResults"]
       }
     }
+```
+
+3. Install the search component
+
+```javascript
+yarn add gatsby-wordpress-search
+
+or
+
+npm i gatsby-wordpress-search
 ```
 
 4. Import the component and style it.
