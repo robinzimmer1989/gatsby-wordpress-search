@@ -1,12 +1,17 @@
 {
   "name": "gatsby-wordpress-search",
   "description": "Add search functionality (powered by Lunr.js) to your Gatsby site based on Wordpress data.",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "author": "Robin Zimmer",
   "dependencies": {
     "gatsby": "2.3.3",
     "lunr": "^2.3.6",
     "react": "^16.8.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1"
   },
   "keywords": [
     "gatsby",
@@ -14,7 +19,10 @@
     "search"
   ],
   "license": "MIT",
-  "main": "n/a",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepare": "node_modules/@babel/cli/bin/babel.js src --out-dir lib"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/robinzimmer1989/gatsby-wordpress-search"

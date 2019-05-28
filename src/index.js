@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
 import lunr from "lunr";
 
-const PureSearchComponent = props => {
+const SearchComponent = props => {
   const {
     data: {
       allWordpressWpSearchResults: { edges: posts }
@@ -65,13 +64,11 @@ const PureSearchComponent = props => {
 
               return (
                 <li key={post.node.id} className={`suggest`}>
-                  <Link
+                  <h4
                     className={`suggestTitle`}
-                    to={post.node.pathname}
                     onClick={() => onSelect(post.node)}
-                  >
-                    {post.node.post_title}
-                  </Link>
+                    children={post.node.post_title}
+                  />
 
                   {post.node.searchData[0] && (
                     <div
@@ -92,25 +89,5 @@ const PureSearchComponent = props => {
     </div>
   );
 };
-
-export const SearchComponent = props => (
-  <StaticQuery
-    query={graphql`
-      {
-        allWordpressWpSearchResults {
-          edges {
-            node {
-              id
-              post_title
-              searchData
-              pathname
-            }
-          }
-        }
-      }
-    `}
-    render={data => <PureSearchComponent {...props} data={data} />}
-  />
-);
 
 export default SearchComponent;
