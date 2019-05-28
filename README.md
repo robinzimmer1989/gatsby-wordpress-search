@@ -1,4 +1,4 @@
-# Gatsby Wordpress Search (Beta)
+# Gatsby Wordpress Search
 
 Add search functionality (powered by [Lunr.js](https://github.com/olivernn/lunr.js/)) to your Gatsby site based on Wordpress data.
 
@@ -10,16 +10,38 @@ Gatsby plugin: gatsby-source-wordpress
 
 ## Instructions
 
-1. Include the .php file into your WP functions.php to create a custom endpoint. Once this is done you should be able to see the json output at "/wp-json/wp/v1/searchResults".
+1. Upload the PHP file inside the plugin folder (see [GitHub](https://github.com/robinzimmer1989/gatsby-wordpress-search)) as a plugin into Wordpress. Once this is done you should be able to see the json output at "/wp-json/wp/v2/searchResults".
 
-2. Add the SearchComponent.js to your Gatsby project
-
-3. Import the component and style it. Right now I'm using emotion css but you can style it however you want.
+2. Install the search component
 
 ```javascript
-import React, { Component } from "react";
-import { css } from "emotion";
-import SearchComponent from "src/components/SearchComponent";
+yarn add gatsby-wordpress-search
+
+or
+
+npm i gatsby-wordpress-search
+```
+
+3. Include the route in your gatsby-config.js
+
+```javascript
+{
+      resolve: "gatsby-source-wordpress",
+      options: {
+        ...
+        includedRoutes: ["**/searchResults"]
+      }
+    }
+```
+
+4. Import the component and style it.
+
+```javascript
+import React from "react";
+import { css } from "styled-components";
+import Search from "gatsby-wordpress-search";
+
+// Basic styling
 
 const container = css`
   display: flex;
@@ -56,22 +78,17 @@ const suggestTitle = css`
 
 const suggestContent = css``;
 
-export default class Search extends Component {
-  render() {
-    return (
-      <SearchComponent
-        minCharacters={4}
-        contentCharacters={300}
-        componentStyles={{
-          container: container,
-          input: input,
-          suggests: suggests,
-          suggest: suggest,
-          suggestTitle: suggestTitle,
-          suggestContent: suggestContent
-        }}
-      />
-    );
-  }
-}
+<Search
+  minCharacters={4}
+  contentCharacters={300}
+  maxResults={5}
+  componentStyles={{
+    container,
+    input,
+    suggests,
+    suggest,
+    suggestTitle,
+    suggestContent
+  }}
+/>;
 ```
