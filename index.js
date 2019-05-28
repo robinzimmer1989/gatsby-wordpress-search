@@ -13,7 +13,6 @@ const PureSearchComponent = props => {
   const minCharacters = props.minCharacters || 2;
   const contentCharacters = props.contentCharacters || 200;
   const maxResults = props.maxResults || 10;
-  const styles = props.componentStyles;
 
   const [query, setQuery] = useState("");
   const [idx, setIdx] = useState(null);
@@ -47,29 +46,29 @@ const PureSearchComponent = props => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`container`}>
       <input
         name='query'
         onChange={e => setQuery(e.target.value)}
         autoComplete='off'
-        className={styles.input}
+        className={`input`}
       />
 
       {query.length >= minCharacters && (
-        <ul className={styles.suggests}>
+        <ul className={`suggests`}>
           {results &&
             results.map(o => {
               const post = posts.filter(post => post.node.id === o.ref)[0];
 
               return (
-                <li key={post.node.id} className={styles.suggest}>
-                  <Link className={styles.suggestTitle} to={post.node.pathname}>
+                <li key={post.node.id} className={`suggest`}>
+                  <Link className={`suggestTitle`} to={post.node.pathname}>
                     {post.node.post_title}
                   </Link>
 
                   {post.node.searchData[0] && (
                     <div
-                      className={styles.suggestContent}
+                      className={`suggestContent`}
                       dangerouslySetInnerHTML={{
                         __html: post.node.searchData[0].substring(
                           0,

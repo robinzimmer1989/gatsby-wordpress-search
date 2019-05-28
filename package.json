@@ -1,7 +1,7 @@
 {
   "name": "gatsby-wordpress-search",
   "description": "Add search functionality (powered by Lunr.js) to your Gatsby site based on Wordpress data.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Robin Zimmer",
   "dependencies": {
     "gatsby": "2.3.3",

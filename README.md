@@ -38,57 +38,30 @@ npm i gatsby-wordpress-search
 
 ```javascript
 import React from "react";
-import { css } from "styled-components";
+import styled from "styled-components";
 import Search from "gatsby-wordpress-search";
 
-// Basic styling
+<Wrapper>
+  <Search minCharacters={4} contentCharacters={300} maxResults={5} />
+</Wrapper>;
 
-const container = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 40px;
-  background: #f7f7f7;
-  max-width: 600px;
+const Wrapper = styled.div`
+  .container {
+  }
+
+  .input {
+  }
+
+  .suggests {
+  }
+
+  .suggest {
+  }
+
+  .suggestTitle {
+  }
+
+  .suggestContent {
+  }
 `;
-
-const input = css`
-  width: 100%;
-  height: 40px;
-`;
-
-const suggests = css`
-  max-width: 600px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-left: 0;
-`;
-
-const suggest = css`
-  padding: 30px 10px;
-  border-bottom: 1px solid #ddd;
-  width: 100%;
-`;
-
-const suggestTitle = css`
-  margin-bottom: 20px;
-`;
-
-const suggestContent = css``;
-
-<Search
-  minCharacters={4}
-  contentCharacters={300}
-  maxResults={5}
-  componentStyles={{
-    container,
-    input,
-    suggests,
-    suggest,
-    suggestTitle,
-    suggestContent
-  }}
-/>;
 ```
