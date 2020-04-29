@@ -26,7 +26,7 @@ const SearchComponent = props => {
   useEffect(() => {
     const idx = getIndex();
     setIdx(idx);
-  });
+  }, []);
 
   const getIndex = () => {
     return lunr(function() {
