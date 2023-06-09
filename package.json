@@ -4,7 +4,7 @@
   "version": "1.0.9",
   "author": "Robin Zimmer",
   "dependencies": {
-    "gatsby": "2.3.3",
+    "gatsby": "4.25.7",
     "lunr": "^2.3.6",
     "react": "^16.8.2"
   },
